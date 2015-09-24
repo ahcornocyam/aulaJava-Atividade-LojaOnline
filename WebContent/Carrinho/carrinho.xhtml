@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="/Produto/produtos.xhtml">
+	<ui:define name="conteudoProduto">
+		<h:form>
+			<p> total de itens: <h:outputText value="#{carrinhoBean.totalProdutos()}"/> </p>
+			<h:dataTable value="#{carrinhoBean.carrinho}" var="item" styleClass="table" headerClass="head">
+				<h:column>
+					<f:facet name="header">Nome:</f:facet>
+					<h:outputText value="#{item.nome}" />					
+				</h:column>
+				<h:column>
+					<f:facet name="header">preço:</f:facet>
+					<h:outputText value="#{item.preco}" />										
+				</h:column>
+				<h:column>
+					<f:facet name="header">Ações</f:facet>
+					<h:commandLink action="#{carrinhoBean.removerItem(item)}" value="remover do carrinho" />
+				</h:column>
+			</h:dataTable>
+			<div class="head">
+				<h:outputLabel value="Valor Total: " />
+				<h:outputText value="#{carrinhoBean.calcularValorTotal()}" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition> 
+</html>

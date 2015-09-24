@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+      <ui:composition template="/Produto/produtos.xhtml">
+      	<ui:define name="conteudoProduto">
+      		<h:form>
+      			<h1>Produtos</h1>
+      			<h:panelGrid columns="2" styleClass="form">
+      				
+      				<h:outputLabel value="Nome:" />
+      				<h:inputText value="#{produtoBean.produto.nome}" />
+      				<h:outputLabel value="Categoria:" />
+      				<h:inputText value="#{produtoBean.produto.categoria}" />
+      				<h:outputLabel value="Preço:" />
+      				<h:inputText value="#{produtoBean.produto.preco}" />
+      				<h:outputLabel value="Quantidade:" />
+      				<h:inputText value="#{produtoBean.produto.quantidade}" />
+      				<h:commandLink action="#{produtoBean.salvar()}" value="salvar" styleClass="button"/>      				
+      			</h:panelGrid>
+      		</h:form>
+      	</ui:define>
+      </ui:composition> 
+ 
+</html>

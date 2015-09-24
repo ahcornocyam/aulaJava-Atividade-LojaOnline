@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+	<ui:composition template="/Template/template.xhtml">
+		<ui:define name="cabecario">
+			<ui:include src="/Cabecario/cabecario.xhtml" />
+		</ui:define>
+		<ui:define name="conteudo">
+		
+		<div id="login">
+			<h:form>
+								
+				<h:panelGrid columns="2" styleClass="box">
+					<f:facet name="header">Login</f:facet>					
+					<h:outputLabel value="usuário" />					
+					<h:inputText id="usuario" value="#{loginBean.usuario.nome}" />
+					<h:outputLabel value="senha" />
+					<h:inputSecret value="#{loginBean.usuario.senha}" />
+					<h:commandLink action="#{loginBean.logar(loginBean.usuario)}" value="Logar" styleClass="button primario" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+		</ui:define>
+	</ui:composition>
+
+</html>
